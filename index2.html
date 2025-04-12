@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>අලුත් අවුරුදු නැකත් සීට්ටුව - Sinhala New Year Auspicious Times</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #ff7b00;
+            --secondary-color: #ffc107;
+            --accent-color: #8b0000;
+            --light-color: #fff5e6;
+            --dark-color: #333;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 245, 230, 0.9);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent-color);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .intro h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .intro p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .nekath-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .nekath-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .nekath-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nekath-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            border-bottom: 2px dashed var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .nekath-details {
+            margin-top: 1rem;
+        }
+        
+        .nekath-details p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nekath-details p:last-child {
+            border-bottom: none;
+        }
+        
+        .nekath-details strong {
+            color: var(--accent-color);
+        }
+        
+        .calculator {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .calculator h2 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .calculator p {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        select, button {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        button:hover {
+            background-color: var(--accent-color);
+        }
+        
+        #result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: var(--light-color);
+            border-radius: 5px;
+            border-left: 5px solid var(--secondary-color);
+            display: none;
+        }
+        
+        .customs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .custom-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed var(--secondary-color);
+        }
+        
+        .custom-card ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+        
+        .custom-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .nekath-card {
+                max-width: 100%;
+            }
+            
+            .customs {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animation */
+        @keyframes colorChange {
+            0% { color: var(--primary-color); }
+            50% { color: var(--accent-color); }
+            100% { color: var(--primary-color); }
+        }
+        
+        .animated-text {
+            animation: colorChange 3s infinite;
+            font-weight: bold;
+        }
+        
+        /* Calendar styles */
+        .calendar {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+        }
+        
+        .calendar th, .calendar td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .calendar th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .calendar td {
+            background-color: white;
+        }
+        
+        .calendar .auspicious {
+            background-color: rgba(255, 193, 7, 0.3);
+            position: relative;
+        }
+        
+        .calendar .auspicious::after {
+            content: "✓";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: green;
+            font-weight: bold;
+        }
+        
+        .countdown {
+            text-align: center;
+            margin: 2rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .countdown-item {
+            background-color: white;
+            color: var(--accent-color);
+            padding: 1rem;
+            border-radius: 5px;
+            width: 80px;
+            text-align: center;
+        }
+        
+        .countdown-item span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .countdown-item p {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            color: var(--dark-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>අලුත් අවුරුදු නැකත් සීට්ටුව</h1>
+            <p>Sinhala & Tamil New Year Auspicious Times</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <h2>සිංහල හා දෙමළ අලුත් අවුරුද්ද - 2025</h2>
+            <p>සිංහල හා දෙමළ අලුත් අවුරුද්ද යනු ශ්‍රී ලංකාවේ සිංහල හා දෙමළ ජනතාව විසින් සමරනු ලබන සාම්ප්‍රදායික නව වසරකි. මෙය අප්‍රේල් මාසයේ දී සමරනු ලැබේ. අලුත් අවුරුද්ද සඳහා නැකත් සීට්ටුව අනුව වැදගත් වන්නේ නැකත් වලට අනුව කටයුතු කිරීමයි.</p>
+            <p>මෙම වෙබ් අඩවිය මඟින් 2025 අලුත් අවුරුදු සැමරීම සඳහා සුබ මුහූර්ත හා නැකත් පිළිබඳ තොරතුරු ලබා දෙනු ලැබේ.</p>
+            <p class="animated-text">2025 අප්‍රේල් 14 වන සඳුදා දින අලුත් අවුරුදු උදාව!</p>
+        </div>
+        
+        <div class="countdown">
+            <h2>අලුත් අවුරුදු උදාවට ඉතිරි කාලය</h2>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>දින</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>පැය</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>මිනිත්තු</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>තත්පර</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; margin: 2rem 0; color: var(--accent-color);">අලුත් අවුරුදු සුබ නැකත්</h2>
+        
+        <div class="nekath-container">
+            <div class="nekath-card">
+                <h3>පුණ්‍ය කාලය</h3>
+                <div class="nekath-details">
+                    <p><strong>දිනය:</strong> <span>අප්‍රේල් 13</span></p>
+                    <p><strong>වේලාව:</strong> <span>පෙ.ව. 7:38</span></p>
+                    <p><strong>සුබ පැය:</strong> <span>මේෂ</span></p>
+                    <p><strong>වර්ණය:</strong> <span>නිල්</span></p>
+                </div>
+            </div>
+            
+            <div class="nekath-card">
+                <h3>අලුත් අවුරුදු උදාව</h3>
+                <div class="nekath-details">
+                    <p><strong>දිනය:</strong> <span>අප්‍රේල් 14</span></p>
+                    <p><strong>වේලාව:</strong> <span>පෙ.ව. 5:22</span></p>
+                    <p><strong>සුබ පැය:</strong> <span>සිංහ</span></p>
+                    <p><strong>වර්ණය:</strong> <span>රතු</span></p>
+                </div>
+            </div>
+            
+            <div class="nekath-card">
+                <h3>ආහාර අනුභවය</h3>
+                <div class="nekath-details">
+                    <p><strong>දිනය:</strong> <span>අප්‍රේල් 14</span></p>
+                    <p><strong>වේලාව:</strong> <span>පෙ.ව. 7:15</span></p>
+                    <p><strong>දිශාව:</strong> <span>උතුර</span></p>
+                    <p><strong>වර්ණය:</strong> <span>සුදු</span></p>
+                </div>
+            </div>
+            
+            <div class="nekath-card">
+                <h3>වැඩ ඇල්ලීම</h3>
+                <div class="nekath-details">
+                    <p><strong>දිනය:</strong> <span>අප්‍රේල් 14</span></p>
+                    <p><strong>වේලාව:</strong> <span>ප.ව. 3:45</span></p>
+                    <p><strong>වර්ණය:</strong> <span>කොළ</span></p>
+                    <p><strong>සුබ පැය:</strong> <span>කන්‍යා</span></p>
+                </div>
+            </div>
+            
+            <div class="nekath-card">
+                <h3>ගනුදෙනු කිරීම</h3>
+                <div class="nekath-details">
+                    <p><strong>දිනය:</strong> <span>අප්‍රේල් 15</span></p>
+                    <p><strong>වේලාව:</strong> <span>පෙ.ව. 10:30</span></p>
+                    <p><strong>වර්ණය:</strong> <span>රන්වන්</span></p>
+                    <p><strong>දිශාව:</strong> <span>නැගෙනහිර</span></p>
+                </div>
+            </div>
+            
+            <div class="nekath-card">
+                <h3>හිසතෙල් ගෑම</h3>
+                <div class="nekath-details">
+                    <p><strong>දිනය:</strong> <span>අප්‍රේල් 15</span></p>
+                    <p><strong>වේලාව:</strong> <span>ප.ව. 2:15</span></p>
+                    <p><strong>වර්ණය:</strong> <span>කහ</span></p>
+                    <p><strong>සුබ පැය:</strong> <span>කුම්භ</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="calculator">
+            <h2>සුබ නැකත් ගණක යන්ත්‍රය</h2>
+            <p>ඔබේ ප්‍රදේශයට අදාළ නැකත් සොයා ගැනීමට පහත තොරතුරු සපයන්න</p>
+            
+            <div class="form-group">
+                <label for="district">ඔබ සිටින ප්‍රදේශය:</label>
+                <select id="district">
+                    <option value="">තෝරන්න</option>
+                    <option value="colombo">කොළඹ</option>
+                    <option value="gampaha">ගම්පහ</option>
+                    <option value="kalutara">කළුතර</option>
+                    <option value="kandy">මහනුවර</option>
+                    <option value="matale">මාතලේ</option>
+                    <option value="galle">ගාල්ල</option>
+                    <option value="matara">මාතර</option>
+                    <option value="jaffna">යාපනය</option>
+                    <option value="anuradhapura">අනුරාධපුරය</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="activity">ඔබට අවශ්‍ය ක්‍රියාකාරකම:</label>
+                <select id="activity">
+                    <option value="">තෝරන්න</option>
+                    <option value="food">ආහාර අනුභවය</option>
+                    <option value="work">වැඩ ඇල්ලීම</option>
+                    <option value="transaction">ගනුදෙනු කිරීම</option>
+                    <option value="oil">හිසතෙල් ගෑම</option>
+                </select>
+            </div>
+            
+            <button id="calculate">සුබ නැකත සොයන්න</button>
+            
+            <div id="result">
+                <h3>ඔබට සුදුසු සුබ නැකත</h3>
+                <p id="result-text"></p>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; margin: 2rem 0; color: var(--accent-color);">අලුත් අවුරුදු කැලැන්ඩරය - 2025</h2>
+        
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>ඉරිදා</th>
+                    <th>සඳුදා</th>
+                    <th>අඟහරුවාදා</th>
+                    <th>බදාදා</th>
+                    <th>බ්‍රහස්පතින්දා</th>
+                    <th>සිකුරාදා</th>
+                    <th>සෙනසුරාදා</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td class="auspicious">13<br>පුණ්‍ය කාලය</td>
+                    <td class="auspicious">14<br>අලුත් අවුරුදු උදාව</td>
+                    <td class="auspicious">15<br>ගනුදෙනු කිරීම</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="customs">
+            <div class="custom-card">
+                <h3>අලුත් අවුරුදු චාරිත්‍ර</h3>
+                <ul>
+                    <li>අලුත් අවුරුදු උදාවට පෙර නිවස පිරිසිදු කිරීම</li>
+                    <li>පුණ්‍ය කාලය තුළ ආගමික වතාවත් සිදු කිරීම</li>
+                    <li>වැඩ ඇල්ලීමේ නැකතට පළමු වරට වැඩ ආරම්භ කිරීම</li>
+                    <li>අලුත් අවුරුදු උදාවේදී අලුත් ඇඳුම් ඇඳීම</li>
+                    <li>ගනුදෙනු කිරීමේ නැකතට මුදල් හුවමාරු කිරීම</li>
+                </ul>
+            </div>
+            
+            <div class="custom-card">
+                <h3>අලුත් අවුරුදු කෑම</h3>
+                <ul>
+                    <li>කිරිබත්</li>
+                    <li>කොකිස්</li>
+                    <li>අසම්මෝර</li>
+                    <li>කැවුම්</li>
+                    <li>අලුවා</li>
+                    <li>අතිරස</li>
+                </ul>
+            </div>
+            
+            <div class="custom-card">
+                <h3>අලුත් අවුරුදු ක්‍රීඩා</h3>
+                <ul>
+                    <li>අලියට ඇස තැබීම</li>
+                    <li>කණා මුට්ටි ගැසීම</li>
+                    <li>ලීමේස්</li>
+                    <li>පනයට පැනීම</li>
+                    <li>කඹ ඇදීම</li>
+                    <li>පොල් ගැසීම</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 අලුත් අවුරුදු නැකත් සීට්ටුව | සියලුම හිමිකම් ඇවිරිණි. | Design by Gimhan Technologies.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const newYearDate = new Date("April 14, 2025 05:22:00").getTime();
+            const now = new Date().getTime();
+            const distance = newYearDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+            }
+        }
+        
+        // Update countdown every second
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Nekath Calculator
+        document.getElementById("calculate").addEventListener("click", function() {
+            const district = document.getElementById("district").value;
+            const activity = document.getElementById("activity").value;
+            const result = document.getElementById("result");
+            const resultText = document.getElementById("result-text");
+            
+            if (district === "" || activity === "") {
+                alert("කරුණාකර සියලු තොරතුරු පුරවන්න");
+                return;
+            }
+            
+            let time, date, color, direction;
+            
+            // Simple demonstration - in a real app, this would be based on more detailed data
+            if (activity === "food") {
+                date = "අප්‍රේල් 14";
+                time = "පෙ.ව. 7:15";
+                color = "සුදු";
+                direction = "උතුර";
+            } else if (activity === "work") {
+                date = "අප්‍රේල් 14";
+                time = "ප.ව. 3:45";
+                color = "කොළ";
+                direction = "දකුණ";
+            } else if (activity === "transaction") {
+                date = "අප්‍රේල් 15";
+                time = "පෙ.ව. 10:30";
+                color = "රන්වන්";
+                direction = "නැගෙනහිර";
+            } else if (activity === "oil") {
+                date = "අප්‍රේල් 15";
+                time = "ප.ව. 2:15";
+                color = "කහ";
+                direction = "බටහිර";
+            }
+            
+            // Add slight district variations
+            if (district === "colombo") {
+                time = (activity === "food") ? "පෙ.ව. 7:10" : time;
+            } else if (district === "kandy") {
+                time = (activity === "transaction") ? "පෙ.ව. 10:20" : time;
+            } else if (district === "jaffna") {
+                time = (activity === "oil") ? "ප.ව. 2:25" : time;
+            }
+            
+            resultText.innerHTML = `
+                <p><strong>දිනය:</strong> ${date}</p>
+                <p><strong>වේලාව:</strong> ${time}</p>
+                <p><strong>සුබ වර්ණය:</strong> ${color}</p>
+                <p><strong>සුබ දිශාව:</strong> ${direction}</p>
+                <p><em>මෙම වේලාව ${district} ප්‍රදේශයට අදාළ වේ</em></p>
+            `;
+            
+            result.style.display = "block";
+        });
+    </script>
+</body>
+</html>
